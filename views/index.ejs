@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Bulk Emails</title>
+</head>
+<body>
+  <h1>Send Bulk Emails</h1>
+  <form action="/send-email" method="POST" enctype="multipart/form-data">
+    <% if (showEmailSettings) { %>
+      <div>
+        <label for="smtpHost">SMTP Host:</label>
+        <input type="text" id="smtpHost" name="smtpHost" placeholder="e.g., smtp.hostinger.com" required>
+      </div>
+      <div>
+        <label for="smtpPort">SMTP Port:</label>
+        <input type="number" id="smtpPort" name="smtpPort" placeholder="e.g., 465" required>
+      </div>
+      <div>
+        <label for="smtpUser">SMTP User:</label>
+        <input type="email" id="smtpUser" name="smtpUser" placeholder="e.g., contact@yourdomain.com" required>
+      </div>
+      <div>
+        <label for="smtpPass">SMTP Password:</label>
+        <input type="password" id="smtpPass" name="smtpPass" required>
+      </div>
+    <% } %>
+    <div>
+      <label for="fromEmail">From Email:</label>
+      <input type="text" id="fromEmail" name="fromEmail" placeholder="e.g., contact@yourdomain.com" required>
+    </div>
+    <div>
+      <label for="recipients">Recipients (comma-separated):</label>
+      <textarea id="recipients" name="recipients" placeholder="e.g., email1@example.com, email2@example.com"></textarea>
+    </div>
+    <div>
+      <label for="emailFile">Upload .txt file with email addresses:</label>
+      <input type="file" id="emailFile" name="emailFile" accept=".txt">
+    </div>
+    <div>
+      <label for="bodyFile">Upload .txt or .html file for email body:</label>
+      <input type="file" id="bodyFile" name="bodyFile" accept=".txt,.html">
+    </div>
+    <div>
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" required>
+    </div>
+    <button type="submit">Send Emails</button>
+  </form>
+</body>
+</html>
